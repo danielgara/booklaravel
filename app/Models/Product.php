@@ -27,11 +27,9 @@ class Product extends Model
         $this->attributes['id'] = $id;
     }
 
-    public function getNameAttribute()
-
-   # public function getName()
+    public function getName()
     {
-        return strtoupper($this->attributes['name']);
+        return $this->attributes['name'];
     }
 
     public function setName($name)
