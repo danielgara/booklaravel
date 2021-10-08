@@ -15,7 +15,7 @@ class ProductController extends Controller
         $viewData["products"] = Product::all();
         return view('product.index')->with("viewData", $viewData);
     }
-
+    
     public function show($id)
     {
         $viewData = [];
