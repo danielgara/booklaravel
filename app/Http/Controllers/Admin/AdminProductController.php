@@ -32,7 +32,7 @@ class AdminProductController extends Controller
         $newProduct->setImage("game.png");
         $newProduct->save();
 
-        if($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             $imageName = $newProduct->getId().".png";
             Storage::disk('public')->put(
                 $imageName,
@@ -42,6 +42,12 @@ class AdminProductController extends Controller
             $newProduct->save();
         }
 
+        return back();
+    }
+
+    public function delete($id)
+    {
+        Product::destroy($id);
         return back();
     }
 }
