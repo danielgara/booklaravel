@@ -21,10 +21,20 @@ class Product extends Model
     {
         $request->validate([
             "name" => "required|max:255",
-            "description" => "required|max:255",
+            "description" => "required",
             "price" => "required|numeric|gt:0",
             'image' => 'image',
         ]);
+    }
+
+    public static function sumPricesByQuantities($products, $productsInSession)
+    {
+        $total = 0;
+        foreach ($products as $product) {
+            $total = $total + ($product->getPrice()*$productsInSession[$product->getId()]);
+        }
+
+        return $total;
     }
     
     public function getId()
