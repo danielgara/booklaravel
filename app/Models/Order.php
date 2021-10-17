@@ -17,6 +17,8 @@ class Order extends Model
      * $this->attributes['items'] - Item[] - contains the associated items
      * $this->attributes['created_at'] - timestamp - contains the order creation date
      * $this->attributes['updated_at'] - timestamp - contains the order update date
+     * $this->user - User - contains the associated User
+     * $this->items - Item[] - contains the associated items
      */
 
     public static function validate($request)
@@ -84,12 +86,12 @@ class Order extends Model
 
     public function getUser()
     {
-        return $this->attributes['user'];
+        return $this->user;
     }
 
     public function setUser($user)
     {
-        $this->attributes['user'] = $user;
+        $this->user = $user;
     }
 
     public function items()
@@ -99,11 +101,11 @@ class Order extends Model
     
     public function getItems()
     {
-        return $this->attributes['items'];
+        return $this->items;
     }
 
     public function setItems($items)
     {
-        $this->attributes['items'] = $items;
+        $this->items = $items;
     }
 }

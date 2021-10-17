@@ -23,9 +23,9 @@ class User extends Authenticatable
      * $this->attributes['remember_token'] - string - contains the user password
      * $this->attributes['role'] - string - contains the user role (client or admin)
      * $this->attributes['balance'] - int - contains the user balance
-     * $this->attributes['orders'] - Order[] - contains the associated orders
      * $this->attributes['created_at'] - timestamp - contains the user creation date
      * $this->attributes['updated_at'] - timestamp - contains the user update date
+     * $this->orders - Order[] - contains the associated orders
      */
 
     /**
@@ -146,11 +146,11 @@ class User extends Authenticatable
     
     public function getOrders()
     {
-        return $this->attributes['orders'];
+        return $this->orders;
     }
 
     public function setOrders($orders)
     {
-        $this->attributes['orders'] = $orders;
+        $this->orders = $orders;
     }
 }

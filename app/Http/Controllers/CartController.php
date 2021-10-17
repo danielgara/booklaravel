@@ -69,6 +69,10 @@ class CartController extends Controller
             $order->setTotal($total);
             $order->save();
 
+            $newBalance = Auth::user()->getBalance() - $total;
+            Auth::user()->setBalance($newBalance);
+            Auth::user()->save();
+
             $request->session()->forget('products');
 
             $viewData = [];

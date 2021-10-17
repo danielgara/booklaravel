@@ -14,11 +14,11 @@ class Item extends Model
      * $this->attributes['quantity'] - int - contains the item quantity
      * $this->attributes['price'] - int - contains the item price
      * $this->attributes['order_id'] - int - contains the referenced order id
-     * $this->attributes['order'] - Order - contains the associated Order
      * $this->attributes['product_id'] - int - contains the referenced product id
-     * $this->attributes['product'] - Product - contains the associated Product
      * $this->attributes['created_at'] - timestamp - contains the item creation date
      * $this->attributes['updated_at'] - timestamp - contains the item update date
+     * $this->order - Order - contains the associated Order
+     * $this->product - Product - contains the associated Product
      */
 
     public static function validate($request)
@@ -108,12 +108,12 @@ class Item extends Model
 
     public function getOrder()
     {
-        return $this->attributes['order'];
+        return $this->order;
     }
 
     public function setOrder($order)
     {
-        $this->attributes['order'] = $order;
+        $this->order = $order;
     }
 
     public function product()
@@ -123,11 +123,11 @@ class Item extends Model
     
     public function getProduct()
     {
-        return $this->attributes['product'];
+        return $this->product;
     }
 
     public function setProduct($product)
     {
-        $this->attributes['product'] = $product;
+        $this->product = $product;
     }
 }
